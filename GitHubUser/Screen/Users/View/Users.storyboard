@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FGj-6R-YVY">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Y9L-v8-CgW">
+            <objects>
+                <navigationController id="FGj-6R-YVY" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="h6M-Q3-TNV">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="6hO-1j-e8p" kind="relationship" relationship="rootViewController" id="Eog-8D-Qem"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wop-Z6-j9h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-578" y="129"/>
+        </scene>
+        <!--ユーザー一覧-->
+        <scene sceneID="jdV-fe-fAT">
+            <objects>
+                <viewController storyboardIdentifier="UsersViewController" title="ユーザー一覧" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6hO-1j-e8p" customClass="UsersViewController" customModule="GitHubUser" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xLu-Wg-N2k">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ys8-A0-wbj">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="6hO-1j-e8p" id="2b6-rH-DpL"/>
+                                    <outlet property="delegate" destination="6hO-1j-e8p" id="sea-xh-Apb"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YYV-Hs-TcW" firstAttribute="trailing" secondItem="Ys8-A0-wbj" secondAttribute="trailing" id="Cd4-gh-mcN"/>
+                            <constraint firstAttribute="bottom" secondItem="Ys8-A0-wbj" secondAttribute="bottom" id="REy-5W-UTB"/>
+                            <constraint firstItem="Ys8-A0-wbj" firstAttribute="top" secondItem="YYV-Hs-TcW" secondAttribute="top" id="SlR-Ir-QoS"/>
+                            <constraint firstItem="Ys8-A0-wbj" firstAttribute="leading" secondItem="YYV-Hs-TcW" secondAttribute="leading" id="TPT-o2-Uu1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YYV-Hs-TcW"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="ユーザー一覧" id="MtC-6e-xlE"/>
+                    <connections>
+                        <outlet property="tableView" destination="Ys8-A0-wbj" id="ysm-A2-VB8"/>
+                        <segue destination="iEO-7U-tKf" kind="show" identifier="showUserDetail" id="w9c-yn-CQu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xxM-Dm-M5H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="107" y="128"/>
+        </scene>
+        <!--UserDetail-->
+        <scene sceneID="kUm-4a-IYy">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UserDetail" id="iEO-7U-tKf" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wFT-Pj-kyB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="599" y="128"/>
+        </scene>
+    </scenes>
+</document>
