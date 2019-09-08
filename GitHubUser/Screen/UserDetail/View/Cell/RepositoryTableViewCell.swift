@@ -11,6 +11,7 @@ import UIKit
 class RepositoryTableViewCell: UITableViewCell {
 	
 	@IBOutlet weak var repositoryNameLabel: UILabel!
+	@IBOutlet weak var programmingLanguageView: UIView!
 	@IBOutlet weak var programmingLanguageLabel: UILabel!
 	@IBOutlet weak var starCountLabel: UILabel!
 	@IBOutlet weak var descriptionLabel: UILabel!
@@ -39,6 +40,9 @@ class RepositoryTableViewCell: UITableViewCell {
 		self.programmingLanguageLabel.text = repoVO.language
 		self.starCountLabel.text = (repoVO.stargazersCount ?? 0 as Int).string(withComma: true)
 		self.descriptionLabel.text = repoVO.description
+		
+		let nonLanguage = repoVO.language?.isEmpty ?? true as Bool
+		self.programmingLanguageView.backgroundColor = nonLanguage ? UIColor.white : UIColor.black.withAlphaComponent(0.2)
 	}
 	
 }

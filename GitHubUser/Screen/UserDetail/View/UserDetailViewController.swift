@@ -81,7 +81,15 @@ extension UserDetailViewController: UserDetailView {
 	}
 	
 	func displayRepositoryList() {
-		self.tableView.reloadData()
+		self.tableView.reloadData() { [weak self] in
+			guard let self = self else { return }
+			
+			if self.tableView.numberOfRows(inSection: 0) <= 0 {
+				self.tableView.backgroundView = self.noContentsView
+			} else {
+				self.tableView.backgroundView = nil
+			}
+		}
 	}
 	
 }
